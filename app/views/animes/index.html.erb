@@ -1,0 +1,35 @@
+<table class="ui celled table">
+  <thead>
+    <tr><th class="collapsing">ID</th>
+    <th class="collapsing">タイトル</th>
+    <th class="collapsing">youtube</th>
+    <th class="collapsing">ani</th>
+    <th class="collapsing">hima</th>
+    <th class="collapsing">daily</th>
+    <th class="collapsing">miomio</th>
+    <th class="collapsing">smove</th>
+    <th class="collapsing">para</th>
+    <th class="collapsing">取得日</th>
+    <th class="collapsing">管理</th>
+  </tr></thead>
+  <tbody>
+    <% @animes.each do |anime| %>
+        <tr>
+         <td ><%= anime.id %></td>
+         <td><%= anime.title.truncate(20) %></td>
+         <td ><%= link_to "○", "#{anime.youtube}", { :target => "_blank"}   if !anime.youtube.nil? %></td>
+         <td ><%= link_to "○", "#{anime.ani}", { :target => "_blank"}   if !anime.ani.nil? %></td>
+         <td ><%= link_to "○", "#{anime.hima}", { :target => "_blank"}   if !anime.hima.nil? %></td>
+         <td ><%= link_to "○", "#{anime.daily}", { :target => "_blank"}   if !anime.daily.nil? %></td>
+         <td ><%= link_to "○", "#{anime.miomio}", { :target => "_blank"}   if !anime.miomio.nil? %></td>
+         <td ><%= link_to "○", "#{anime.smove}", { :target => "_blank"}   if !anime.smove.nil? %></td>
+         <td ><%= link_to "○", "#{anime.para}", { :target => "_blank"}   if !anime.para.nil? %></td>
+         <td ><%= anime.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
+         <td>
+          <%= link_to "編集", edit_anime_path(anime.id), { :class => "ui olive button" } %>
+          <%= link_to "削除", anime, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
+         </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
