@@ -9,6 +9,7 @@
     <th class="collapsing">miomio</th>
     <th class="collapsing">smove</th>
     <th class="collapsing">para</th>
+    <th class="collapsing">b9</th>
     <th class="collapsing">取得日</th>
     <th class="collapsing">管理</th>
   </tr></thead>
@@ -24,6 +25,7 @@
          <td ><%= link_to "○", "#{anime.miomio}", { :target => "_blank"}   if !anime.miomio.nil? %></td>
          <td ><%= link_to "○", "#{anime.smove}", { :target => "_blank"}   if !anime.smove.nil? %></td>
          <td ><%= link_to "○", "#{anime.para}", { :target => "_blank"}   if !anime.para.nil? %></td>
+         <td ><%= link_to "○", "#{anime.b9}", { :target => "_blank"}   if !anime.b9.nil? %></td>
          <td ><%= anime.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>
          <td>
           <%= link_to "編集", edit_anime_path(anime.id), { :class => "ui olive button" } %>
