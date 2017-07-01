@@ -5,7 +5,7 @@ module Api
 
 
       def index
-         @animes = Anime.all
+         @animes = Anime.all.first(30)
          render json: @animes
       end
       

@@ -30,6 +30,9 @@ gem "nokogiri"
 gem 'mysql2'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem "ransack"
+
+gem 'whenever', require: false
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
