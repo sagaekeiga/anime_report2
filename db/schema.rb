@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628103057) do
+ActiveRecord::Schema.define(version: 20170702092121) do
 
   create_table "animes", force: :cascade do |t|
     t.text     "name"
@@ -30,6 +30,39 @@ ActiveRecord::Schema.define(version: 20170628103057) do
     t.text     "miomio"
     t.text     "smove"
     t.text     "para"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bots", force: :cascade do |t|
+    t.text     "name"
+    t.text     "matching"
+    t.text     "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.text     "title"
+    t.text     "url"
+    t.text     "youtube"
+    t.text     "ani"
+    t.text     "hima"
+    t.text     "myvi"
+    t.text     "b9"
+    t.text     "daily"
+    t.text     "miomio"
+    t.text     "smove"
+    t.text     "para"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.text     "s_title"
+    t.text     "w_title"
+    t.text     "url"
+    t.text     "matching"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

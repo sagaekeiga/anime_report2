@@ -1,0 +1,23 @@
+<table class="ui celled table">
+  <thead>
+    <tr><th class="collapsing">ID</th>
+    <th>タイトル</th>
+    <th>MATCHING</th>
+    <th>URL</th>
+    <th>管理</th>
+  </tr></thead>
+  <tbody>
+    <% @bots.each do |bot| %>
+        <tr>
+         <td ><%= bot.id %></td>
+         <td class="collapsing"><%= bot.name.truncate(20) %></td>
+         <td class="collapsing"><%= bot.matching %></td>
+         <td class="collapsing"><%= link_to "#{bot.url}", "#{bot.url}", { :target => "_blank"}   if !bot.url.nil? %></td>
+         <td>
+          <%= link_to "編集", edit_bot_path(bot.id), { :class => "ui olive button" } %>
+          <%= link_to "削除", bot, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
+         </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

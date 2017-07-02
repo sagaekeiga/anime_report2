@@ -1,0 +1,22 @@
+<div class="ui relaxed grid">
+  <div class="three column row">
+    <div class="column"></div>
+    <div class="column">
+        <div class="ui segment">
+            <% if !@channel.nil? %>
+                <%= @channel.title %><br>
+                <%= @channel.url %><br>
+                <%= @channel.youtube %><br>
+                <%= @channel.ani %><br>
+                <%= @channel.myvi %><br>
+                <%= @channel.b9 %><br>
+                <%= @channel.daily %><br>
+                <%= @channel.miomio %><br>
+                <%= @channel.smove %><br>
+                <%= @channel.para %><br>
+            <% end %>
+        </div>
+    </div>
+    <div class="column"></div>
+  </div>
+</div>

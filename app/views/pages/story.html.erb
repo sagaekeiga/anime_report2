@@ -1,0 +1,13 @@
+<div class="ui relaxed grid">
+  <div class="three column row">
+    <div class="column"></div>
+    <div class="column">
+        <div class="ui segment">
+            <% @stories.each do |story| %>
+             <%= link_to "#{story.s_title}", pages_channel_path(url: story.url)%><br>
+            <% end %>
+        </div>
+    </div>
+    <div class="column"></div>
+  </div>
+</div>

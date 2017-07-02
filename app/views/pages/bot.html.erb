@@ -1,0 +1,13 @@
+<div class="ui relaxed grid">
+  <div class="three column row">
+    <div class="column"></div>
+    <div class="column">
+        <div class="ui segment">
+            <% @bots.each do |bot| %>
+             <%= link_to "#{bot.name}", pages_story_path(matching: bot.matching)%><br>
+            <% end %>
+        </div>
+    </div>
+    <div class="column"></div>
+  </div>
+</div>

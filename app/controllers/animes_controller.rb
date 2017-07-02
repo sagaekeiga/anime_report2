@@ -34,7 +34,7 @@ class AnimesController < ApplicationController
             
             puts "タイトル"
             # 各動画のタイトル格納フェーズ
-            puts @anime[:title] = doc.css('#mainBlock > div:nth-child(3) > div.mainEntryBase > div.mainEntryBody').inner_text
+            puts @anime[:title] = doc.css('#mainBlock > div:nth-child(3) > div.mainEntryBase > div.mainEntryBody').inner_text unless anime[:href].to_s.include?("wikipedia")
             
             # 各動画のリンク格納フェーズ
             puts "リンクタイトル"
@@ -53,4 +53,6 @@ class AnimesController < ApplicationController
         end
           redirect_to root_path
     end
+    
+    
 end
