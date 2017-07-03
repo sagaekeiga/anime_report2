@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get 'bots/scraping'
   get 'stories/scraping'
   get 'channels/scraping'
-  
+  get 'channels/scraping2'
+
   resources :animes
   resources :bots
   resources :stories

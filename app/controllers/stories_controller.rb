@@ -2,6 +2,11 @@ class StoriesController < ApplicationController
 require 'open-uri'
     
     def index
+        p params[:q].nil?
+        @q = Story.search(params[:q])
+        p @q
+        p "@q"
+        @results = @q.result(distinct: true) if !params[:q].nil?
         @stories = Story.all.order("created_at").reverse.first(100)
     end
 
@@ -35,4 +40,6 @@ require 'open-uri'
         
         redirect_to stories_path
     end
+    
+    
 end

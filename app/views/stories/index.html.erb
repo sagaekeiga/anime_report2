@@ -1,4 +1,13 @@
-<table class="ui celled table">
+  <h3 class="ui center aligned header">
+    <%= search_form_for @q do |f| %>
+      <div class="ui fluid action input">
+      　<%= f.search_field :w_title_cont, class: :"", :placeholder => "ストーリー名" %>
+        <%= f.submit "検索", class: "ui teal right labeled icon button" %>
+      </div>
+    <% end %>
+  </h3>
+  
+  <table class="ui celled table">
   <thead>
     <tr><th class="collapsing">ID</th>
     <th>作品タイトル</th>
@@ -8,18 +17,34 @@
     <th>管理</th>
   </tr></thead>
   <tbody>
-    <% @stories.each do |story| %>
-        <tr>
-         <td ><%= story.id %></td>
-         <td class="collapsing"><%= story.w_title.truncate(20) %></td>
-         <td class="collapsing"><%= story.s_title.truncate(20) %></td>
-         <td class="collapsing"><%= story.matching.truncate(20) %></td>
-         <td class="collapsing"><%= link_to "#{story.url.truncate(10)}", "#{story.url}", { :target => "_blank"}   if !story.url.nil? %></td>
-         <td>
-          <%= link_to "編集", edit_story_path(story.id), { :class => "ui olive button" } %>
-          <%= link_to "削除", story, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
-         </td>
-        </tr>
+    <% if @results.nil? %>
+        <% @stories.each do |story| %>
+            <tr>
+             <td ><%= story.id %></td>
+             <td class="collapsing"><%= story.w_title.truncate(20) %></td>
+             <td class="collapsing"><%= story.s_title.truncate(20) %></td>
+             <td class="collapsing"><%= story.matching.truncate(20) %></td>
+             <td class="collapsing"><%= link_to "#{story.url.truncate(10)}", "#{story.url}", { :target => "_blank"}   if !story.url.nil? %></td>
+             <td>
+              <%= link_to "編集", edit_story_path(story.id), { :class => "ui olive button" } %>
+              <%= link_to "削除", story, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
+             </td>
+            </tr>
+        <% end %>
+    <% elsif !@results.nil? %>
+        <% @results.each do |story| %>
+            <tr>
+             <td ><%= story.id %></td>
+             <td class="collapsing"><%= story.w_title.truncate(20) %></td>
+             <td class="collapsing"><%= story.s_title.truncate(20) %></td>
+             <td class="collapsing"><%= story.matching.truncate(20) %></td>
+             <td class="collapsing"><%= link_to "#{story.url.truncate(10)}", "#{story.url}", { :target => "_blank"}   if !story.url.nil? %></td>
+             <td>
+              <%= link_to "編集", edit_story_path(story.id), { :class => "ui olive button" } %>
+              <%= link_to "削除", story, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
+             </td>
+            </tr>
+        <% end %>
     <% end %>
   </tbody>
 </table>
