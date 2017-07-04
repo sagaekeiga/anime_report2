@@ -43,7 +43,7 @@ require 'open-uri'
     
     def scraping2
         @urls2 = Story.all
-        @urls2[14000..20000].each do |url2|
+        @urls2[19000..26000].each do |url2|
             begin
 
             doc = Nokogiri.HTML(open("#{url2.url}"))
