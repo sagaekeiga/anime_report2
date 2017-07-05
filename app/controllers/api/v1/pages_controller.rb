@@ -11,6 +11,7 @@ module Api
         logger.debug(params)
         logger.debug("params")
         @bots = Bot.where(marching: params)
+        render json: @bots
       end
     
       def story
@@ -19,6 +20,7 @@ module Api
         logger.debug(params)
         logger.debug("params")
         @stories = Story.where(w_title: params)
+        render json: @stories
       end
     
       def channel
@@ -27,6 +29,7 @@ module Api
         logger.debug(params)
         logger.debug("params")
         @channel = Channel.find_by(url: params)
+        render json: @channel
       end
       
       
