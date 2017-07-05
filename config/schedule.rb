@@ -7,9 +7,9 @@
 set :output, '/home/anime/anime_report2/current/log/crontab.log'
 set :environment, :production
 
-# every 1.minute do
-#   rake 'sample:sample RAILS_ENV=production'
-# end
+every 1.minute do
+  rake 'sample:sample RAILS_ENV=production'
+end
 
 # Example:
 #
