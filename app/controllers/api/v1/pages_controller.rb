@@ -10,7 +10,7 @@ module Api
         logger.debug("params")
         logger.debug(params)
         logger.debug("params")
-        @bots = Bot.where(matching: params)
+        @bots = Bot.where("matching like '%#{params}%'")
         render json: @bots
       end
     
