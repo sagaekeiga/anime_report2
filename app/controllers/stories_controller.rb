@@ -41,5 +41,13 @@ require 'open-uri'
         redirect_to stories_path
     end
     
+    # def scraping2
+    #     @stories = Story.all
+    #     @stories.each do |story|
+    #         story[:w_title] = story.w_title.gsub(" ", "").gsub("　", "")
+    #         story.save!
+    #     end
+    # end
+    
     
 end

@@ -23,7 +23,7 @@
              <td ><%= story.id %></td>
              <td class="collapsing"><%= story.w_title.truncate(20) %></td>
              <td class="collapsing"><%= story.s_title.truncate(20) %></td>
-             <td class="collapsing"><%= story.matching.truncate(20) %></td>
+             <td class="collapsing"><%= story.matching %></td>
              <td class="collapsing"><%= link_to "#{story.url.truncate(10)}", "#{story.url}", { :target => "_blank"}   if !story.url.nil? %></td>
              <td>
               <%= link_to "編集", edit_story_path(story.id), { :class => "ui olive button" } %>
@@ -37,7 +37,7 @@
              <td ><%= story.id %></td>
              <td class="collapsing"><%= story.w_title.truncate(20) %></td>
              <td class="collapsing"><%= story.s_title.truncate(20) %></td>
-             <td class="collapsing"><%= story.matching.truncate(20) %></td>
+             <td class="collapsing"><%= story.matching %></td>
              <td class="collapsing"><%= link_to "#{story.url.truncate(10)}", "#{story.url}", { :target => "_blank"}   if !story.url.nil? %></td>
              <td>
               <%= link_to "編集", edit_story_path(story.id), { :class => "ui olive button" } %>

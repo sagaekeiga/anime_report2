@@ -1,4 +1,13 @@
-<table class="ui celled table">
+  <h3 class="ui center aligned header">
+    <%= search_form_for @q do |f| %>
+      <div class="ui fluid action input">
+      　<%= f.search_field :title_cont, class: :"", :placeholder => "アニメ名" %>
+        <%= f.submit "検索", class: "ui teal right labeled icon button" %>
+      </div>
+    <% end %>
+  </h3>
+  
+  <table class="ui celled table">
   <thead>
     <tr><th class="collapsing">ID</th>
     <th class="collapsing">タイトル</th>
@@ -14,24 +23,46 @@
     <th class="collapsing">管理</th>
   </tr></thead>
   <tbody>
-    <% @channels.each do |channel| %>
-        <tr>
-         <td ><%= channel.id %></td>
-         <td><%= channel.title.truncate(20) %></td>
-         <td><%= channel.url.truncate(20) %></td>
-         <td ><%= link_to "○", "#{channel.youtube}", { :target => "_blank"}   if !channel.youtube.nil? %></td>
-         <td ><%= link_to "○", "#{channel.ani}", { :target => "_blank"}   if !channel.ani.nil? %></td>
-         <td ><%= link_to "○", "#{channel.hima}", { :target => "_blank"}   if !channel.hima.nil? %></td>
-         <td ><%= link_to "○", "#{channel.daily}", { :target => "_blank"}   if !channel.daily.nil? %></td>
-         <td ><%= link_to "○", "#{channel.miomio}", { :target => "_blank"}   if !channel.miomio.nil? %></td>
-         <td ><%= link_to "○", "#{channel.smove}", { :target => "_blank"}   if !channel.smove.nil? %></td>
-         <td ><%= link_to "○", "#{channel.para}", { :target => "_blank"}   if !channel.para.nil? %></td>
-         <td ><%= link_to "○", "#{channel.b9}", { :target => "_blank"}   if !channel.b9.nil? %></td>
-         <td>
-          <%= link_to "編集", edit_channel_path(channel.id), { :class => "ui olive button" } %>
-          <%= link_to "削除", channel, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
-         </td>
-        </tr>
+    <% if @results.nil? %>
+        <% @channels.each do |channel| %>
+            <tr>
+             <td ><%= channel.id %></td>
+             <td><%= channel.title.truncate(20) %></td>
+             <td><%= channel.url.truncate(20) %></td>
+             <td ><%= link_to "○", "#{channel.youtube}", { :target => "_blank"}   if !channel.youtube.nil? %></td>
+             <td ><%= link_to "○", "#{channel.ani}", { :target => "_blank"}   if !channel.ani.nil? %></td>
+             <td ><%= link_to "○", "#{channel.hima}", { :target => "_blank"}   if !channel.hima.nil? %></td>
+             <td ><%= link_to "○", "#{channel.daily}", { :target => "_blank"}   if !channel.daily.nil? %></td>
+             <td ><%= link_to "○", "#{channel.miomio}", { :target => "_blank"}   if !channel.miomio.nil? %></td>
+             <td ><%= link_to "○", "#{channel.smove}", { :target => "_blank"}   if !channel.smove.nil? %></td>
+             <td ><%= link_to "○", "#{channel.para}", { :target => "_blank"}   if !channel.para.nil? %></td>
+             <td ><%= link_to "○", "#{channel.b9}", { :target => "_blank"}   if !channel.b9.nil? %></td>
+             <td>
+              <%= link_to "編集", edit_channel_path(channel.id), { :class => "ui olive button" } %>
+              <%= link_to "削除", channel, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
+             </td>
+            </tr>
+        <% end %>
+    <% elsif !@results.nil? %>
+        <% @results.each do |channel| %>
+            <tr>
+             <td ><%= channel.id %></td>
+             <td><%= channel.title.truncate(20) %></td>
+             <td><%= channel.url.truncate(20) %></td>
+             <td ><%= link_to "○", "#{channel.youtube}", { :target => "_blank"}   if !channel.youtube.nil? %></td>
+             <td ><%= link_to "○", "#{channel.ani}", { :target => "_blank"}   if !channel.ani.nil? %></td>
+             <td ><%= link_to "○", "#{channel.hima}", { :target => "_blank"}   if !channel.hima.nil? %></td>
+             <td ><%= link_to "○", "#{channel.daily}", { :target => "_blank"}   if !channel.daily.nil? %></td>
+             <td ><%= link_to "○", "#{channel.miomio}", { :target => "_blank"}   if !channel.miomio.nil? %></td>
+             <td ><%= link_to "○", "#{channel.smove}", { :target => "_blank"}   if !channel.smove.nil? %></td>
+             <td ><%= link_to "○", "#{channel.para}", { :target => "_blank"}   if !channel.para.nil? %></td>
+             <td ><%= link_to "○", "#{channel.b9}", { :target => "_blank"}   if !channel.b9.nil? %></td>
+             <td>
+              <%= link_to "編集", edit_channel_path(channel.id), { :class => "ui olive button" } %>
+              <%= link_to "削除", channel, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
+             </td>
+            </tr>
+        <% end %>
     <% end %>
   </tbody>
 </table>

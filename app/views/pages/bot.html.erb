@@ -4,7 +4,7 @@
     <div class="column">
         <div class="ui segment">
             <% @bots.each do |bot| %>
-             <%= link_to "#{bot.name}", pages_story_path(matching: bot.matching)%><br>
+             <%= link_to "#{bot.name}", pages_story_path(matching: bot.matching) %><br>
             <% end %>
         </div>
     </div>

@@ -18,6 +18,11 @@ require 'open-uri'
     
     
     def index
+        p params[:q].nil?
+        @q = Bot.search(params[:q])
+        p @q
+        p "@q"
+        @results = @q.result(distinct: true) if !params[:q].nil?
         @bots = Bot.all.order("created_at").reverse
     end
     

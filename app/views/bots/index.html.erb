@@ -1,4 +1,13 @@
-<table class="ui celled table">
+  <h3 class="ui center aligned header">
+    <%= search_form_for @q do |f| %>
+      <div class="ui fluid action input">
+      　<%= f.search_field :name_cont, class: :"", :placeholder => "アニメ名" %>
+        <%= f.submit "検索", class: "ui teal right labeled icon button" %>
+      </div>
+    <% end %>
+  </h3>
+  
+  <table class="ui celled table">
   <thead>
     <tr><th class="collapsing">ID</th>
     <th>タイトル</th>
@@ -7,17 +16,32 @@
     <th>管理</th>
   </tr></thead>
   <tbody>
-    <% @bots.each do |bot| %>
-        <tr>
-         <td ><%= bot.id %></td>
-         <td class="collapsing"><%= bot.name.truncate(20) %></td>
-         <td class="collapsing"><%= bot.matching %></td>
-         <td class="collapsing"><%= link_to "#{bot.url}", "#{bot.url}", { :target => "_blank"}   if !bot.url.nil? %></td>
-         <td>
-          <%= link_to "編集", edit_bot_path(bot.id), { :class => "ui olive button" } %>
-          <%= link_to "削除", bot, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
-         </td>
-        </tr>
+    <% if @results.nil? %>
+        <% @bots.each do |bot| %>
+            <tr>
+             <td ><%= bot.id %></td>
+             <td class="collapsing"><%= bot.name.truncate(20) %></td>
+             <td class="collapsing"><%= bot.matching %></td>
+             <td class="collapsing"><%= link_to "#{bot.url}", "#{bot.url}", { :target => "_blank"}   if !bot.url.nil? %></td>
+             <td>
+              <%= link_to "編集", edit_bot_path(bot.id), { :class => "ui olive button" } %>
+              <%= link_to "削除", bot, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
+             </td>
+            </tr>
+        <% end %>
+    <% elsif !@results.nil? %>
+        <% @results.each do |bot| %>
+            <tr>
+             <td ><%= bot.id %></td>
+             <td class="collapsing"><%= bot.name.truncate(20) %></td>
+             <td class="collapsing"><%= bot.matching %></td>
+             <td class="collapsing"><%= link_to "#{bot.url}", "#{bot.url}", { :target => "_blank"}   if !bot.url.nil? %></td>
+             <td>
+              <%= link_to "編集", edit_bot_path(bot.id), { :class => "ui olive button" } %>
+              <%= link_to "削除", bot, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
+             </td>
+            </tr>
+        <% end %>
     <% end %>
   </tbody>
 </table>
