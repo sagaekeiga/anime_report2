@@ -28,7 +28,7 @@ module Api
         logger.debug("params")
         logger.debug(params)
         logger.debug("params")
-        @channel = Channel.find_by(url: params)
+        puts @channel = Channel.find_by(url: params)
         render json: @channel
       end
       
