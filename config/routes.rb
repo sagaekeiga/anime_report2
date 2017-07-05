@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   
   namespace :api, { format: 'json' } do
     namespace :v1, { format: 'json' } do 
+      post 'pages/bot'
+      post 'pages/story'
+      post 'pages/channel'
       post 'animes/search'
       post 'animes/detail'
       resources :animes
