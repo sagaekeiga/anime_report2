@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       post 'pages/channel'
       post 'animes/search'
       post 'animes/detail'
+      post 'locates/search'
       resources :animes
     end
   end
