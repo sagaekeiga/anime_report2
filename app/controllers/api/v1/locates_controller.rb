@@ -9,9 +9,7 @@ module Api
          logger.debug(params)
          logger.debug("params")
          params = params.to_f
-         raise params.class.name
          puts params
-         raise params.class.name
          @locate = Locate.find_by(latitude: params) if !params.nil?
          render json: @locate
       end
