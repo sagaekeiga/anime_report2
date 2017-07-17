@@ -1,0 +1,23 @@
+<table class="ui celled table">
+  <thead>
+    <tr><th class="collapsing">ID</th>
+    <th class="collapsing">名前</th>
+    <th class="collapsing">緯度</th>
+    <th class="collapsing">経度</th>
+    <th class="collapsing">管理</th>
+  </tr></thead>
+  <tbody>
+    <% @locates.each do |locate| %>
+        <tr>
+         <td ><%= locate.id %></td>
+         <td><%= locate.name %></td>
+         <td><%= locate.latitude %></td>
+         <td><%= locate.longitude %></td>
+         <td>
+          <%= link_to "編集", edit_locate_path(locate.id), { :class => "ui olive button" } %>
+          <%= link_to "削除", locate, { :class => "ui red button", method: :delete, data: { confirm: "本当に削除してもいいですか？" }} %>
+         </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

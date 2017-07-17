@@ -1,3 +1,4 @@
+<% if false %>
 <div class="ui segment">
   <h3 class="ui right aligned header">
     <%= link_to 'UI', pages_bot_path %>
@@ -8,5 +9,15 @@
     <%= link_to '作品のスクレイピング', bots_scraping_path %>
     <%= link_to '各話のスクレイピング', stories_scraping_path %>
     <%= link_to 'チャンネルのスクレイピング', channels_scraping_path %>
+  </h3>
+</div>
+<% end %>
+
+
+
+<div class="ui segment">
+  <h3 class="ui right aligned header">
+    <%= link_to 'ホーム', root_path %>
+    <%= link_to '登録', new_locate_path %>
   </h3>
 </div>

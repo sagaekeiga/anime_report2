@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'pages/channel'
 
-  root 'animes#index'
+  root 'locates#index'
   get 'animes/scraping'
   get 'bots/scraping'
   get 'stories/scraping'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :bots
   resources :stories
   resources :channels
+  resources :locates
   
   namespace :api, { format: 'json' } do
     namespace :v1, { format: 'json' } do 
