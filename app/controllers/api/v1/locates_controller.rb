@@ -8,6 +8,9 @@ module Api
          logger.debug("params")
          logger.debug(params)
          logger.debug("params")
+         puts "title:" + params['title'].to_s
+         puts "content:" + params['content'].to_s
+         
          params = params.to_f
          puts params
          @locate = Locate.find_by(latitude: params) if !params.nil?
