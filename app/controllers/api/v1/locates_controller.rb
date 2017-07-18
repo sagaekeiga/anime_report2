@@ -8,6 +8,7 @@ module Api
          logger.debug("params")
          logger.debug(params)
          logger.debug("params")
+         puts "OK"
          puts "title:" + params['title'].to_s
          puts "content:" + params['content'].to_s
          
