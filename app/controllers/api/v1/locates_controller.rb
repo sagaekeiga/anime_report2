@@ -9,8 +9,8 @@ module Api
          logger.debug(params)
          logger.debug("params")
          logger.debug("OK")
-         logger.debug("title:" + params["title"])
-         logger.debug("content:" + params["content"])
+         logger.debug(params["title"])
+         logger.debug(params["content"])
 
          params = params.to_f
          puts params
