@@ -4,7 +4,7 @@ module Api
     skip_before_filter :verify_authenticity_token
 
       def search
-         params = request.body.read
+         params = request.body.read.to_json
          logger.debug("params")
          logger.debug(params)
          logger.debug("params")
