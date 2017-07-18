@@ -5,6 +5,7 @@ module Api
 
       def search
          params = request.body.read
+         params = JSON.parse(params)
          logger.debug("params")
          logger.debug(params)
          logger.debug("params")
