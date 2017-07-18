@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 20170717135752) do
 
   create_table "locates", force: :cascade do |t|
     t.text     "name"
+    t.text     "url"
+    t.text     "pref_cd"
     t.float    "latitude",   limit: 53
     t.float    "longitude",  limit: 53
     t.datetime "created_at",            null: false

@@ -23,5 +23,7 @@ if dist.to_f > 50
     p "OK"
 end
 
-a = {"title"=>"Square Logo", "content"=>"1"}
-p a["title"]
+distdist = 38.2446966
+
+if 38.26889 < distdist
+end

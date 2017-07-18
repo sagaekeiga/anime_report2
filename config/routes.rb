@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   get 'pages/channel'
 
   root 'locates#index'
+  
+  get 'locates/data_url'
+  get 'locates/data_other'
+  get 'locates/data_com'
+  get 'locates/geo'
+  
   get 'animes/scraping'
   get 'bots/scraping'
   get 'stories/scraping'

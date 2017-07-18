@@ -31,6 +31,8 @@ gem 'mysql2'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem "ransack"
 
+gem 'geokit-rails'
+
 gem 'whenever', require: false
 
 # Use ActiveModel has_secure_password
