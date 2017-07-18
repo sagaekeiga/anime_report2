@@ -22,3 +22,6 @@ p dist = distance(38.2446966, 140.9180064, 38.251535, 140.920777)
 if dist.to_f > 50
     p "OK"
 end
+
+a = {"title"=>"Square Logo", "content"=>"1"}
+p a["title"]
